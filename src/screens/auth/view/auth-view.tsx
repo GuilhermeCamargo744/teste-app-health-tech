@@ -11,7 +11,13 @@ import {
 } from "./styles";
 import { IAuthView } from "../interface/interface-auth-view";
 
-export const AuthView = ({ control, handleSubmit, onSubmit }: IAuthView) => {
+export const AuthView = ({
+  control,
+  handleSubmit,
+  onSubmit,
+  loading,
+  error,
+}: IAuthView) => {
   return (
     <ContentKeyboardView behavior="height">
       <ContainerScroll>
@@ -27,6 +33,8 @@ export const AuthView = ({ control, handleSubmit, onSubmit }: IAuthView) => {
               control={control}
               handleSubmit={handleSubmit}
               onSubmit={onSubmit}
+              loading={loading}
+              error={error}
             />
           </ContentAbsolute>
         </Container>

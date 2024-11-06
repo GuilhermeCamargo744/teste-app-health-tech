@@ -8,6 +8,9 @@ export const DefaultThemeApp = {
     black: "#000",
     red: "#B91C1C",
     background: "#747474",
+    light_gray: "#DADADA33",
+    black_600: "#171717",
+    gray_500: "#8C8C8C",
   },
   size: {
     xs: 12,

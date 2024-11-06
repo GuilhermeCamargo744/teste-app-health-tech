@@ -1,17 +1,20 @@
-import { useForm, Controller } from "react-hook-form";
+import { isDevelop } from "./../../server/config";
+import { useForm } from "react-hook-form";
 import { InterfaceFormLogin } from "./interface/interface-form-login";
 import { loginApi } from "@/src/models/auth/login";
 import { useState } from "react";
+
+const defaultValues = isDevelop
+  ? { username: "emilys", password: "emilyspass" }
+  : {};
 
 export const useAuth = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<InterfaceFormLogin>();
+  const { control, handleSubmit } = useForm<InterfaceFormLogin>({
+    defaultValues,
+  });
 
   const onSubmit = (body: InterfaceFormLogin) => {
     void loginApi({
@@ -25,5 +28,7 @@ export const useAuth = () => {
     control,
     onSubmit,
     handleSubmit,
+    loading,
+    error,
   };
 };

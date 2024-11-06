@@ -6,6 +6,9 @@ import { useEffect } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "react-native-reanimated";
 import { ThemeProvider } from "styled-components";
+import { Provider } from "react-redux";
+import { store } from "@/src/utils/store/store";
+import { StatusBar } from "expo-status-bar";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -30,17 +33,19 @@ export default function RootLayout() {
 
   return (
     <GestureHandlerRootView>
-      <ThemeProvider theme={DefaultThemeApp}>
-        <Stack
-          screenOptions={{
-            headerShown: false,
-          }}
-        >
-          <Stack.Screen name="(screens)" />
-          <Stack.Screen name="+not-found" />
-          <Stack.Screen name="index" />
-        </Stack>
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={DefaultThemeApp}>
+          <Stack
+            screenOptions={{
+              headerShown: false,
+            }}
+          >
+            <Stack.Screen name="(screens)" />
+            <Stack.Screen name="+not-found" />
+            <Stack.Screen name="index" />
+          </Stack>
+        </ThemeProvider>
+      </Provider>
     </GestureHandlerRootView>
   );
 }

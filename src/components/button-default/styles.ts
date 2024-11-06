@@ -15,3 +15,9 @@ export const TitleButton = styled.Text`
   font-family: ${({ theme }) => theme.fonts[600]};
   color: ${({ theme }) => theme.colors.white};
 `;
+
+export const ContentIcon = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;

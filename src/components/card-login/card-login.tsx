@@ -1,13 +1,20 @@
 import React from "react";
-import { CardContainer } from "./styles";
+import { CardContainer, TitleError } from "./styles";
 import { InputWithTitle } from "../input-with-title/input-with-title";
 import { ICardLogin } from "./interface";
 import { Controller } from "react-hook-form";
 import { ButtonDefault } from "../button-default/button-default";
 
-export const CardLogin = ({ control, handleSubmit, onSubmit }: ICardLogin) => {
+export const CardLogin = ({
+  control,
+  handleSubmit,
+  onSubmit,
+  loading,
+  error,
+}: ICardLogin) => {
   return (
     <CardContainer>
+      {error && <TitleError>Username ou senha inválidos</TitleError>}
       <Controller
         control={control}
         name="username"
@@ -48,7 +55,11 @@ export const CardLogin = ({ control, handleSubmit, onSubmit }: ICardLogin) => {
           />
         )}
       />
-      <ButtonDefault title="Entrar" onPress={handleSubmit(onSubmit)} />
+      <ButtonDefault
+        title="Entrar"
+        onPress={handleSubmit(onSubmit)}
+        loading={loading}
+      />
     </CardContainer>
   );
 };

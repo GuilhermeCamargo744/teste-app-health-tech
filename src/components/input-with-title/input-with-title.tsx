@@ -7,7 +7,6 @@ import {
   Title,
 } from "./styles";
 import { IPropsCardLogin } from "./interface";
-import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import { useTheme } from "styled-components";
 import Feather from "@expo/vector-icons/Feather";

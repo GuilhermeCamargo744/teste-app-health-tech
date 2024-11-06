@@ -6,7 +6,15 @@ export const CardContainer = styled.View`
   background-color: ${({ theme }) => theme.colors.white};
   border-width: 1px;
   border-color: ${({ theme }) => theme.colors.gray};
-  /* position: absolute; */
   width: 100%;
   border-radius: 8px;
+`;
+
+export const TitleError = styled.Text`
+  font-size: ${({ theme }) => theme.size.md}px;
+  font-family: ${({ theme }) => theme.fonts[400]};
+  color: ${({ theme }) => theme.colors.red};
+  margin-bottom: 16px;
+  width: 100%;
+  text-align: center;
 `;
