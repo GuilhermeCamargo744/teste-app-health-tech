@@ -16,7 +16,7 @@ export const currentProduct = createSlice({
     setCurrentProduct: (state, action) => {
       state.currentProduct = action.payload;
     },
-    setResetReduxCurrentProduct: (state, action) => {
+    setResetReduxCurrentProduct: (state) => {
       state.currentProduct = initialState.currentProduct;
     },
   },

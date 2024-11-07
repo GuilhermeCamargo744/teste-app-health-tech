@@ -4,7 +4,7 @@ export const ContentAvatar = styled.View`
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 7%;
+  top: 10%;
 `;
 
 export const Avatar = styled.Image`

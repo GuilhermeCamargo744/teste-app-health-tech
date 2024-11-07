@@ -4,6 +4,8 @@ import { ISettings } from "../interface-settings";
 import { ButtonDefault } from "@/src/components/button-default/button-default";
 import { ButtonChevron } from "@/src/components/button-chevron/button-chevron";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { logout } from "@/src/utils/logout";
+import { router } from "expo-router";
 
 export const SettingsView = ({ userData, theme }: ISettings) => {
   return (
@@ -48,7 +50,12 @@ export const SettingsView = ({ userData, theme }: ISettings) => {
             )}
           />
           <ButtonDefault
-            onPress={() => {}}
+            onPress={() =>
+              router.replace({
+                pathname: "/auth-screen",
+                params: { logout: 1 },
+              })
+            }
             title="Sair da conta"
             styleContent={{
               backgroundColor: theme.colors.red_500,

@@ -16,7 +16,7 @@ export const userData = createSlice({
     setUserData: (state, action) => {
       state.user = action.payload;
     },
-    setResetReduxUserData: (state, action) => {
+    setResetReduxUserData: (state) => {
       state.user = initialState.user;
     },
   },

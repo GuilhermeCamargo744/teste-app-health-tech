@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 export const Container = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.colors.primary};
-  padding-top: 30%;
+  padding-top: 35%;
   align-items: center;
   justify-content: center;
 `;
@@ -18,7 +18,7 @@ export const ContentScroll = styled.ScrollView`
 `;
 
 export const ContentBody = styled.View`
-  padding-top: 20%;
+  padding-top: 25%;
   height: 100%;
   width: 100%;
   align-items: center;
