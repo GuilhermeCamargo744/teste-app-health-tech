@@ -51,6 +51,27 @@ export const ItemDescription = styled.Text`
   text-align: left;
 `;
 
-export const ItemPrice = styled(ItemTitle)`
-  margin-top: 16px;
+export const ContentAmount = styled.View`
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-top: 8px;
+  width: 100%;
+  overflow: scroll;
+`;
+
+export const ItemPrice = styled.Text<{ haveDiscount?: boolean }>`
+  font-family: ${({ theme }) => theme.fonts[600]};
+  font-size: ${({ theme, haveDiscount }) =>
+    !haveDiscount ? theme.size.sm : theme.size.md}px;
+  color: ${({ theme }) => theme.colors.background};
+  text-decoration-line: ${({ haveDiscount }) =>
+    !haveDiscount ? "line-through" : "none"};
+`;
+
+export const DiscountText = styled.Text`
+  font-family: ${({ theme }) => theme.fonts[600]};
+  font-size: ${({ theme }) => theme.size.md}px;
+  color: ${({ theme }) => theme.colors.red};
+  margin-right: 8px;
 `;

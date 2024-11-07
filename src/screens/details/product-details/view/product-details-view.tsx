@@ -23,7 +23,8 @@ import { calculatePercent } from "@/src/utils/calculate-percent";
 import { money } from "@/src/utils/money";
 import { ButtonDefault } from "@/src/components/button-default/button-default";
 import Feather from "@expo/vector-icons/Feather";
-import { ModalEditProduct } from "@/src/components/modal-edit-product/modal-edit-product";
+import { ModalEditCreateProduct } from "@/src/components/modal-edit-product/modal-edit-product";
+import { router } from "expo-router";
 
 export const ProdutcDetailsView = ({
   detailsProduct,
@@ -43,38 +44,49 @@ export const ProdutcDetailsView = ({
   return (
     <Container>
       <ScrollContainer>
-        <FlatList
-          data={detailsProduct?.images}
-          renderItem={({ item }) => (
-            <ContainerImage>
-              <ImageProduct source={{ uri: item }} resizeMode="contain" />
-            </ContainerImage>
-          )}
-          keyExtractor={(item, index) => String(index)}
-          horizontal
-          pagingEnabled
-          showsHorizontalScrollIndicator={false}
-          onScroll={handleScroll}
-          scrollEventThrottle={16}
-        />
-        <ContentDots>
-          {detailsProduct?.images.map((item, index) => {
-            return (
-              <DotsListCards key={index} isCurrent={index == currentIndex} />
-            );
-          })}
-        </ContentDots>
+        {detailsProduct?.images ? (
+          <FlatList
+            data={detailsProduct?.images}
+            renderItem={({ item }) => (
+              <ContainerImage>
+                <ImageProduct source={{ uri: item }} resizeMode="contain" />
+              </ContainerImage>
+            )}
+            keyExtractor={(item, index) => String(index)}
+            horizontal
+            pagingEnabled
+            showsHorizontalScrollIndicator={false}
+            onScroll={handleScroll}
+            scrollEventThrottle={16}
+          />
+        ) : (
+          <ContainerImage>
+            <ImageProduct
+              source={{ uri: detailsProduct?.thumbnail }}
+              resizeMode="contain"
+            />
+          </ContainerImage>
+        )}
+
+        {detailsProduct?.images && (
+          <ContentDots>
+            {detailsProduct?.images.map((item, index) => {
+              return (
+                <DotsListCards key={index} isCurrent={index == currentIndex} />
+              );
+            })}
+          </ContentDots>
+        )}
         <ContentDescription>
           <TitleItem>{detailsProduct.title}</TitleItem>
           <ContentAmount>
             {detailsProduct?.discountPercentage && (
               <DiscountText>
                 {money(
-                  detailsProduct?.price -
-                    calculatePercent(
-                      detailsProduct?.price,
-                      detailsProduct?.discountPercentage
-                    )
+                  calculatePercent(
+                    detailsProduct?.price,
+                    detailsProduct?.discountPercentage
+                  )
                 )}
               </DiscountText>
             )}
@@ -87,7 +99,7 @@ export const ProdutcDetailsView = ({
       </ScrollContainer>
       <ContentButtons>
         <ButtonDefault
-          onPress={() => {}}
+          onPress={() => router.navigate("/(details)/edit-create-product")}
           title="Editar"
           Icon={() => (
             <Feather
@@ -112,7 +124,7 @@ export const ProdutcDetailsView = ({
           )}
         />
       </ContentButtons>
-      <ModalEditProduct
+      <ModalEditCreateProduct
         visible={openModal}
         titleHeader="Excluir produto"
         isDelete={true}

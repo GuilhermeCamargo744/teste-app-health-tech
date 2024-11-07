@@ -8,9 +8,8 @@ import "react-native-reanimated";
 import { ThemeProvider } from "styled-components";
 import { Provider } from "react-redux";
 import { store } from "@/src/utils/store/store";
-import { StatusBar } from "expo-status-bar";
+import { QueryClient, QueryClientProvider } from "react-query";
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -31,21 +30,25 @@ export default function RootLayout() {
     return null;
   }
 
+  const queryClient = new QueryClient();
+
   return (
     <GestureHandlerRootView>
-      <Provider store={store}>
-        <ThemeProvider theme={DefaultThemeApp}>
-          <Stack
-            screenOptions={{
-              headerShown: false,
-            }}
-          >
-            <Stack.Screen name="(screens)" />
-            <Stack.Screen name="+not-found" />
-            <Stack.Screen name="index" />
-          </Stack>
-        </ThemeProvider>
-      </Provider>
+      <QueryClientProvider client={queryClient}>
+        <Provider store={store}>
+          <ThemeProvider theme={DefaultThemeApp}>
+            <Stack
+              screenOptions={{
+                headerShown: false,
+              }}
+            >
+              <Stack.Screen name="(screens)" />
+              <Stack.Screen name="+not-found" />
+              <Stack.Screen name="index" />
+            </Stack>
+          </ThemeProvider>
+        </Provider>
+      </QueryClientProvider>
     </GestureHandlerRootView>
   );
 }

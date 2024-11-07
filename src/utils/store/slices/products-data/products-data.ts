@@ -38,19 +38,53 @@ export const productsDataSlice = createSlice({
 
       state.womanProducts = [...state.womanProducts, ...newProducts];
     },
-    setDeletedProduct: (state, action) => {
-      const updatedProduct = action.payload;
-      state.manProducts = state.manProducts.map((product) => {
-        if (product.id === updatedProduct.id) {
-          return { ...product, ...updatedProduct };
-        }
-        return product;
-      });
+    setDeleteAndUpdateProduct: (state, action) => {
+      const { updatedProduct, gender } = action.payload;
+      if (gender === "women") {
+        state.womanProducts = state.womanProducts.map((product) => {
+          if (product.id === updatedProduct.id) {
+            return { ...product, ...updatedProduct };
+          }
+          return product;
+        });
+        return;
+      }
+
+      if (gender === "men") {
+        state.manProducts = state.manProducts.map((product) => {
+          if (product.id === updatedProduct.id) {
+            return { ...product, ...updatedProduct };
+          }
+          return product;
+        });
+      }
+      return;
+    },
+    setAddProduct: (state, action) => {
+      const { product, gender } = action.payload;
+      if (gender === "women") {
+        state.womanProducts = [
+          ...state.womanProducts,
+          { ...product, category: gender },
+        ];
+        return;
+      }
+      if (gender === "men") {
+        state.manProducts = [
+          ...state.manProducts,
+          { ...product, category: gender },
+        ];
+        return;
+      }
     },
   },
 });
 
-export const { setManProducts, setWomanProducts, setDeletedProduct } =
-  productsDataSlice.actions;
+export const {
+  setManProducts,
+  setWomanProducts,
+  setDeleteAndUpdateProduct,
+  setAddProduct,
+} = productsDataSlice.actions;
 
 export default productsDataSlice.reducer;

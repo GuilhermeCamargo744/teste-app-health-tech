@@ -18,8 +18,10 @@ import { mensShortsModel } from "./../../models/categorys/man-categorys/mens-sho
 import { ManTab } from "./header-tabs/man-tab/man-tab";
 import { WomanTab } from "./header-tabs/woman-tab/woman-tab";
 import { useLocalSearchParams } from "expo-router";
+import { useRefreshToken } from "@/src/utils/react-query/automatic-refrash-token";
 
 export const useHome = () => {
+  const { data } = useRefreshToken();
   const params = useLocalSearchParams();
   const layout = useWindowDimensions();
   const [index, setIndex] = useState(0);
@@ -49,7 +51,6 @@ export const useHome = () => {
       mensShortsModel(),
       mensShirtsModel(),
       mensWatchesModel(),
-      mensShortsModel(),
       womensBagsModel(),
       womensDressesModel(),
       womensJewelleryModel(),

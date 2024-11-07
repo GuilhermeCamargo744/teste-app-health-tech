@@ -1,6 +1,8 @@
 import { money } from "@/src/utils/money";
 import { IData } from "./interface-list-products";
 import {
+  ContentAmount,
+  DiscountText,
   ImageItem,
   ItemContainer,
   ItemDescription,
@@ -11,6 +13,7 @@ import {
 import { useAppDispatch } from "@/src/hooks/use-redux";
 import { setCurrentProduct } from "@/src/utils/store/slices/current-product-data/current-product-data";
 import { router } from "expo-router";
+import { calculatePercent } from "@/src/utils/calculate-percent";
 
 interface ICardItemList {
   item: IData;
@@ -32,7 +35,16 @@ export const CardItemList = ({ item }: ICardItemList) => {
           <ItemTitle>{item?.title}</ItemTitle>
           <ItemDescription>{item?.description}</ItemDescription>
         </>
-        <ItemPrice>{money(item?.price.toFixed(2))}</ItemPrice>
+        <ContentAmount>
+          {item?.discountPercentage && (
+            <DiscountText numberOfLines={1}>
+              {money(calculatePercent(item?.price, item?.discountPercentage))}
+            </DiscountText>
+          )}
+          <ItemPrice haveDiscount={!item?.discountPercentage} numberOfLines={1}>
+            {money(item?.price.toFixed(2))}
+          </ItemPrice>
+        </ContentAmount>
       </ItemDetails>
     </ItemContainer>
   );

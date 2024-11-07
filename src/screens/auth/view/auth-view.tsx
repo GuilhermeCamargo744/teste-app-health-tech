@@ -19,7 +19,7 @@ export const AuthView = ({
   error,
 }: IAuthView) => {
   return (
-    <ContentKeyboardView behavior="height">
+    <ContentKeyboardView behavior="padding">
       <ContainerScroll>
         <Container>
           <ContentTop />

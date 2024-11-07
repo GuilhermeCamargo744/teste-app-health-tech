@@ -1,3 +1,3 @@
 export const calculatePercent = (valor: number, porcentagem: number) => {
-  return valor * (porcentagem / 100);
+  return valor - valor * (porcentagem / 100);
 };

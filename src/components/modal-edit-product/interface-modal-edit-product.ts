@@ -1,4 +1,4 @@
-export interface IModalEditProduct {
+export interface IModalEditCreateProduct {
   visible: boolean;
   titleHeader: string;
   isDelete: boolean;

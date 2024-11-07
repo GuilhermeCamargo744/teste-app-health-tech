@@ -1,8 +1,10 @@
 import { TabView } from "react-native-tab-view";
 import { IUseHome } from "../interface/interface-use-home";
-import { SafeAreaView, TouchableOpacity, View } from "react-native";
+import { SafeAreaView } from "react-native";
 import { CustomTabBar } from "@/src/components/custom-tab-bar/custom-tab-bar";
 import { LoadingModal } from "@/src/components/loading-modal/loading-modal";
+import { FloatingButton } from "./styles";
+import { router } from "expo-router";
 
 export const HomeView = ({
   index,
@@ -27,6 +29,16 @@ export const HomeView = ({
         renderTabBar={(props) => (
           <CustomTabBar props={props} setIndex={setIndex} index={index} />
         )}
+      />
+      <FloatingButton
+        icon="plus"
+        onPress={() =>
+          router.navigate({
+            pathname: "/(screens)/(details)/edit-create-product",
+            params: { isAdd: 1, currentTab: index },
+          })
+        }
+        color={theme.colors.white}
       />
     </SafeAreaView>
   );

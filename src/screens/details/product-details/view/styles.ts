@@ -53,7 +53,7 @@ export const TitleItem = styled.Text`
 export const ContentAmount = styled.View`
   flex-direction: row;
   justify-content: flex-start;
-  align-items: flex-end;
+  align-items: center;
   margin-top: 8px;
 `;
 

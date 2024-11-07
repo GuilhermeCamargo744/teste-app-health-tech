@@ -9,17 +9,17 @@ import {
   TitleHeader,
 } from "./styles";
 import AntDesign from "@expo/vector-icons/AntDesign";
-import { IModalEditProduct } from "./interface-modal-edit-product";
+import { IModalEditCreateProduct } from "./interface-modal-edit-product";
 import { ButtonDefault } from "../button-default/button-default";
 import { TouchableOpacity } from "react-native";
 
-export const ModalEditProduct = ({
+export const ModalEditCreateProduct = ({
   visible,
   titleHeader,
   isDelete,
   onPressCancel,
   onPressConfirm,
-}: IModalEditProduct) => {
+}: IModalEditCreateProduct) => {
   const theme = useTheme();
   return (
     <ModalProduct visible={visible} onDismiss={onPressCancel}>
@@ -34,7 +34,7 @@ export const ModalEditProduct = ({
           <Description>
             {isDelete
               ? "Você tem certeza que deseja excluir esse produto? Essa ação não poderá ser desfeita."
-              : ""}
+              : "Você tem certeza que deseja editar esse produto? Essa ação não poderá ser desfeita."}
           </Description>
         </Body>
         <ContentBottom>
