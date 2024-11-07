@@ -11,8 +11,8 @@ export const ContentButton = styled.TouchableOpacity`
 `;
 
 export const TitleButton = styled.Text`
-  font-size: ${({ theme }) => theme.size.md}px;
-  font-family: ${({ theme }) => theme.fonts[600]};
+  font-size: ${({ theme }) => theme.fontSizes.md}px;
+  font-family: ${({ theme }) => theme.fonts.medium};
   color: ${({ theme }) => theme.colors.white};
 `;
 

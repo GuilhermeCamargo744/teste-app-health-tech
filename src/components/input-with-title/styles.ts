@@ -11,22 +11,22 @@ export const Input = styled.TextInput<{ isError?: boolean }>`
   width: 100%;
   border-width: 1px;
   border-color: ${({ theme, isError }) =>
-    isError ? theme.colors.red : theme.colors.gray};
+    isError ? theme.colors.red : theme.colors.gray_200};
   border-radius: 4px;
   padding-left: 12px;
   padding-right: 34px;
 `;
 
 export const Title = styled.Text`
-  font-size: ${({ theme }) => theme.size.sm}px;
-  font-family: ${({ theme }) => theme.fonts[600]};
+  font-size: ${({ theme }) => theme.fontSizes.sm}px;
+  font-family: ${({ theme }) => theme.fonts.medium};
   color: ${({ theme }) => theme.colors.black};
   margin-bottom: 6px;
 `;
 
 export const TextError = styled.Text`
-  font-size: ${({ theme }) => theme.size.xs}px;
-  font-family: ${({ theme }) => theme.fonts[400]};
+  font-size: ${({ theme }) => theme.fontSizes.xs}px;
+  font-family: ${({ theme }) => theme.fonts.regular};
   color: ${({ theme }) => theme.colors.red};
 `;
 

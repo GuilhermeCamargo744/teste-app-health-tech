@@ -1,11 +1,4 @@
-import {
-  ButtonEye,
-  Container,
-  ContentInput,
-  Input,
-  TextError,
-  Title,
-} from "./styles";
+import * as S from "./styles";
 import { IPropsCardLogin } from "./interface";
 import { useState } from "react";
 import { useTheme } from "styled-components";
@@ -24,10 +17,10 @@ export const InputWithTitle = ({
   const theme = useTheme();
 
   return (
-    <Container style={styleContainer}>
-      <Title>{title}</Title>
-      <ContentInput>
-        <Input
+    <S.Container style={styleContainer}>
+      <S.Title>{title}</S.Title>
+      <S.ContentInput>
+        <S.Input
           value={value}
           onChangeText={onChangeText}
           {...rest}
@@ -36,16 +29,16 @@ export const InputWithTitle = ({
         />
 
         {haveIcon && (
-          <ButtonEye onPress={() => setShowPassword(!showPassword)}>
+          <S.ButtonEye onPress={() => setShowPassword(!showPassword)}>
             <Feather
               name={showPassword ? "eye-off" : "eye"}
               size={16}
               color={theme.colors.background}
             />
-          </ButtonEye>
+          </S.ButtonEye>
         )}
-      </ContentInput>
-      {error && <TextError>{error?.message}</TextError>}
-    </Container>
+      </S.ContentInput>
+      {error && <S.TextError>{error?.message}</S.TextError>}
+    </S.Container>
   );
 };

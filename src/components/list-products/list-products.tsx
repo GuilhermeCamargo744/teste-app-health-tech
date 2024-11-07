@@ -1,5 +1,6 @@
 import { FlatList } from "react-native";
-import { ContentList, Title } from "./styles";
+import * as S from "./styles";
+
 import { IListProducts } from "./interface-list-products";
 import { CardItemList } from "./card-item-list";
 
@@ -10,8 +11,8 @@ export const ListProducts = ({ formatedData }: IListProducts) => {
       keyExtractor={(item) => item.title}
       renderItem={({ item }) => {
         return (
-          <ContentList>
-            <Title>{item.title.replace("-", " ").toUpperCase()}</Title>
+          <S.ContentList>
+            <S.Title>{item.title.replace("-", " ").toUpperCase()}</S.Title>
             <FlatList
               data={item.data}
               keyExtractor={(subItem) => String(subItem.id)}
@@ -20,7 +21,7 @@ export const ListProducts = ({ formatedData }: IListProducts) => {
                 return <CardItemList item={item} />;
               }}
             />
-          </ContentList>
+          </S.ContentList>
         );
       }}
     />

@@ -4,26 +4,13 @@ import {
   NativeSyntheticEvent,
 } from "react-native";
 import { IProductDetails } from "../interface-product-details";
-import {
-  AmountText,
-  Container,
-  ContainerImage,
-  ContentAmount,
-  ContentButtons,
-  ContentDescription,
-  ContentDots,
-  Description,
-  DiscountText,
-  DotsListCards,
-  ImageProduct,
-  ScrollContainer,
-  TitleItem,
-} from "./styles";
+
+import * as S from "./styles";
 import { calculatePercent } from "@/src/utils/calculate-percent";
 import { money } from "@/src/utils/money";
 import { ButtonDefault } from "@/src/components/button-default/button-default";
 import Feather from "@expo/vector-icons/Feather";
-import { ModalEditCreateProduct } from "@/src/components/modal-edit-product/modal-edit-product";
+import { ModalEditCreateProduct } from "@/src/components/modal-edit-create-product/modal-edit-create-product";
 import { router } from "expo-router";
 
 export const ProdutcDetailsView = ({
@@ -42,15 +29,15 @@ export const ProdutcDetailsView = ({
   };
 
   return (
-    <Container>
-      <ScrollContainer>
+    <S.Container>
+      <S.ScrollContainer>
         {detailsProduct?.images ? (
           <FlatList
             data={detailsProduct?.images}
             renderItem={({ item }) => (
-              <ContainerImage>
-                <ImageProduct source={{ uri: item }} resizeMode="contain" />
-              </ContainerImage>
+              <S.ContainerImage>
+                <S.ImageProduct source={{ uri: item }} resizeMode="contain" />
+              </S.ContainerImage>
             )}
             keyExtractor={(item, index) => String(index)}
             horizontal
@@ -60,44 +47,47 @@ export const ProdutcDetailsView = ({
             scrollEventThrottle={16}
           />
         ) : (
-          <ContainerImage>
-            <ImageProduct
+          <S.ContainerImage>
+            <S.ImageProduct
               source={{ uri: detailsProduct?.thumbnail }}
               resizeMode="contain"
             />
-          </ContainerImage>
+          </S.ContainerImage>
         )}
 
         {detailsProduct?.images && (
-          <ContentDots>
+          <S.ContentDots>
             {detailsProduct?.images.map((item, index) => {
               return (
-                <DotsListCards key={index} isCurrent={index == currentIndex} />
+                <S.DotsListCards
+                  key={index}
+                  isCurrent={index == currentIndex}
+                />
               );
             })}
-          </ContentDots>
+          </S.ContentDots>
         )}
-        <ContentDescription>
-          <TitleItem>{detailsProduct.title}</TitleItem>
-          <ContentAmount>
+        <S.ContentDescription>
+          <S.TitleItem>{detailsProduct.title}</S.TitleItem>
+          <S.ContentAmount>
             {detailsProduct?.discountPercentage && (
-              <DiscountText>
+              <S.DiscountText>
                 {money(
                   calculatePercent(
                     detailsProduct?.price,
                     detailsProduct?.discountPercentage
                   )
                 )}
-              </DiscountText>
+              </S.DiscountText>
             )}
-            <AmountText haveDiscount={!detailsProduct?.discountPercentage}>
+            <S.AmountText haveDiscount={!detailsProduct?.discountPercentage}>
               {money(detailsProduct?.price)}
-            </AmountText>
-          </ContentAmount>
-          <Description>{detailsProduct?.description}</Description>
-        </ContentDescription>
-      </ScrollContainer>
-      <ContentButtons>
+            </S.AmountText>
+          </S.ContentAmount>
+          <S.Description>{detailsProduct?.description}</S.Description>
+        </S.ContentDescription>
+      </S.ScrollContainer>
+      <S.ContentButtons>
         <ButtonDefault
           onPress={() => router.navigate("/(details)/edit-create-product")}
           title="Editar"
@@ -123,7 +113,7 @@ export const ProdutcDetailsView = ({
             />
           )}
         />
-      </ContentButtons>
+      </S.ContentButtons>
       <ModalEditCreateProduct
         visible={openModal}
         titleHeader="Excluir produto"
@@ -131,6 +121,6 @@ export const ProdutcDetailsView = ({
         onPressCancel={() => setOpenModal(false)}
         onPressConfirm={() => handleDeleteItem(detailsProduct?.id)}
       />
-    </Container>
+    </S.Container>
   );
 };

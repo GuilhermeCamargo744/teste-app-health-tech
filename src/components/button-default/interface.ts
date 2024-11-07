@@ -8,5 +8,5 @@ export interface IButtonDefault {
   styleTitle?: StyleProp<TextStyle>;
   onPress: () => void;
   loading?: boolean;
-  Icon?: React.ComponentType<IconProps>;
+  Icon?: React.ElementType;
 }

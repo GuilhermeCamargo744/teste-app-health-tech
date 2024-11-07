@@ -1,15 +1,8 @@
 import { useTheme } from "styled-components";
-import {
-  Body,
-  Container,
-  ContentBottom,
-  Description,
-  Header,
-  ModalProduct,
-  TitleHeader,
-} from "./styles";
+
+import * as S from "./styles";
 import AntDesign from "@expo/vector-icons/AntDesign";
-import { IModalEditCreateProduct } from "./interface-modal-edit-product";
+import { IModalEditCreateProduct } from "./interface-modal-edit-create-product";
 import { ButtonDefault } from "../button-default/button-default";
 import { TouchableOpacity } from "react-native";
 
@@ -22,22 +15,22 @@ export const ModalEditCreateProduct = ({
 }: IModalEditCreateProduct) => {
   const theme = useTheme();
   return (
-    <ModalProduct visible={visible} onDismiss={onPressCancel}>
-      <Container>
-        <Header>
-          <TitleHeader>{titleHeader}</TitleHeader>
+    <S.ModalProduct visible={visible} onDismiss={onPressCancel}>
+      <S.Container>
+        <S.Header>
+          <S.TitleHeader>{titleHeader}</S.TitleHeader>
           <TouchableOpacity onPress={() => onPressCancel()}>
-            <AntDesign name="close" size={24} color={theme.colors.gray} />
+            <AntDesign name="close" size={24} color={theme.colors.gray_100} />
           </TouchableOpacity>
-        </Header>
-        <Body>
-          <Description>
+        </S.Header>
+        <S.Body>
+          <S.Description>
             {isDelete
               ? "Você tem certeza que deseja excluir esse produto? Essa ação não poderá ser desfeita."
               : "Você tem certeza que deseja editar esse produto? Essa ação não poderá ser desfeita."}
-          </Description>
-        </Body>
-        <ContentBottom>
+          </S.Description>
+        </S.Body>
+        <S.ContentBottom>
           <ButtonDefault
             onPress={() => onPressCancel()}
             title="Cancelar"
@@ -47,7 +40,7 @@ export const ModalEditCreateProduct = ({
               paddingHorizontal: 16,
               backgroundColor: theme.colors.white,
               borderWidth: 1,
-              borderColor: theme.colors.gray,
+              borderColor: theme.colors.gray_200,
             }}
             styleTitle={{
               color: theme.colors.gray_500,
@@ -64,8 +57,8 @@ export const ModalEditCreateProduct = ({
                 : theme.colors.primary,
             }}
           />
-        </ContentBottom>
-      </Container>
-    </ModalProduct>
+        </S.ContentBottom>
+      </S.Container>
+    </S.ModalProduct>
   );
 };

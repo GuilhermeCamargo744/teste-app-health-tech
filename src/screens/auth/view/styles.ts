@@ -42,14 +42,14 @@ export const ContentAbsolute = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-size: ${({ theme }) => theme.size.xxxl}px;
-  font-family: ${({ theme }) => theme.fonts[700]};
+  font-size: ${({ theme }) => theme.fontSizes.xxxl}px;
+  font-family: ${({ theme }) => theme.fonts.bold};
   color: ${({ theme }) => theme.colors.white};
 `;
 
 export const Description = styled.Text`
-  font-size: ${({ theme }) => theme.size.md}px;
-  font-family: ${({ theme }) => theme.fonts[400]};
+  font-size: ${({ theme }) => theme.fontSizes.md}px;
+  font-family: ${({ theme }) => theme.fonts.regular};
   color: ${({ theme }) => theme.colors.white};
   margin-bottom: 32px;
 `;

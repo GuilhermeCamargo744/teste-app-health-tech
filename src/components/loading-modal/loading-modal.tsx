@@ -1,6 +1,6 @@
 import { Modal } from "react-native-paper";
 import { ILoadingModal } from "./interface-loading-modal";
-import { Container, TitleModal } from "./styles";
+import * as S from "./styles";
 import { ActivityIndicator } from "react-native";
 import { useTheme } from "styled-components";
 
@@ -15,10 +15,10 @@ export const LoadingModal = ({ visible }: ILoadingModal) => {
         alignItems: "center",
       }}
     >
-      <Container>
-        <TitleModal>Carregando...</TitleModal>
+      <S.Container>
+        <S.TitleModal>Carregando...</S.TitleModal>
         <ActivityIndicator color={theme.colors.primary} size={60} />
-      </Container>
+      </S.Container>
     </Modal>
   );
 };

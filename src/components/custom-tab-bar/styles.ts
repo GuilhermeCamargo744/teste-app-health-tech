@@ -18,7 +18,7 @@ export const ButtonTab = styled.TouchableOpacity<{ currentIndex?: boolean }>`
 `;
 
 export const TitleTab = styled.Text`
-  font-size: ${({ theme }) => theme.size.xs}px;
-  font-family: ${({ theme }) => theme.fonts[600]};
+  font-size: ${({ theme }) => theme.fontSizes.xs}px;
+  font-family: ${({ theme }) => theme.fonts.medium};
   color: ${({ theme }) => theme.colors.black};
 `;

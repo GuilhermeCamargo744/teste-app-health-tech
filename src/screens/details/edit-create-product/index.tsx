@@ -19,8 +19,8 @@ const EditCreateProduct = () => {
         options={{
           headerTitle: isAdd ? "Adicionar produto" : "Editar produto",
           headerTitleStyle: {
-            fontFamily: theme.fonts[600],
-            fontSize: theme.size.xxl,
+            fontFamily: theme.fonts.medium,
+            fontSize: theme.fontSizes.xxl,
           },
           headerTitleAlign: "left",
         }}

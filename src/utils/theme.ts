@@ -1,31 +1,40 @@
 import "styled-components/native";
 
+const colors = {
+  primary: "#2567E8",
+  white: "#FFF",
+  black: "#000",
+  red: "#B91C1C",
+  red_500: "#E63535",
+  black_600: "#171717",
+  background: "#747474",
+
+  gray_100: "#656565",
+  gray_200: "#BDBDBD",
+  gray_400: "#454545",
+  gray_500: "#8C8C8C",
+};
+
+const fontSizes = {
+  xs: 12,
+  sm: 14,
+  md: 16,
+  lg: 18,
+  xl: 20,
+  xxl: 24,
+  xxxl: 32,
+};
+
+const fonts = {
+  regular: "RobotoRegular",
+  medium: "RobotoMedium",
+  bold: "RobotoBold",
+};
+
 export const DefaultThemeApp = {
-  colors: {
-    primary: "#2567E8",
-    white: "#FFF",
-    gray: "#BDBDBD",
-    black: "#000",
-    red: "#B91C1C",
-    background: "#747474",
-    light_gray: "#DADADA33",
-    black_600: "#171717",
-    gray_500: "#8C8C8C",
-  },
-  size: {
-    xs: 12,
-    sm: 14,
-    md: 16,
-    lg: 18,
-    xl: 20,
-    xxl: 24,
-    xxxl: 32,
-  },
-  fonts: {
-    400: "RobotoRegular",
-    600: "RobotoMedium",
-    700: "RobotoBold",
-  },
+  colors,
+  fontSizes,
+  fonts,
 };
 
 export type DefaultThemeType = typeof DefaultThemeApp;

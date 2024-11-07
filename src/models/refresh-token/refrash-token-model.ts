@@ -1,5 +1,5 @@
 import { api } from "@/src/server/config";
-import { logout } from "@/src/utils/refrash-token-validation/login-token";
+import { logout } from "@/src/utils/logout";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const refreshAccessToken = async () => {

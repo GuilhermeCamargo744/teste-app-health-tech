@@ -1,5 +1,5 @@
 import React from "react";
-import { CardContainer, TitleError } from "./styles";
+import * as S from "./styles";
 import { InputWithTitle } from "../input-with-title/input-with-title";
 import { ICardLogin } from "./interface";
 import { Controller } from "react-hook-form";
@@ -13,8 +13,8 @@ export const CardLogin = ({
   error,
 }: ICardLogin) => {
   return (
-    <CardContainer>
-      {error && <TitleError>Username ou senha inválidos</TitleError>}
+    <S.CardContainer>
+      {error && <S.TitleError>Username ou senha inválidos</S.TitleError>}
       <Controller
         control={control}
         name="username"
@@ -60,6 +60,6 @@ export const CardLogin = ({
         onPress={handleSubmit(onSubmit)}
         loading={loading}
       />
-    </CardContainer>
+    </S.CardContainer>
   );
 };

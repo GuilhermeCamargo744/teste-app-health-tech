@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { logout } from "../refrash-token-validation/login-token";
 import { refreshAccessToken } from "@/src/models/refresh-token/refrash-token-model";
+import { logout } from "../logout";
 
 const fetchAccessToken = async () => {
   const accessToken = await AsyncStorage.getItem("accessToken");

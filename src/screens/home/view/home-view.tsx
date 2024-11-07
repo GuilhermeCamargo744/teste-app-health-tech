@@ -3,7 +3,7 @@ import { IUseHome } from "../interface/interface-use-home";
 import { SafeAreaView } from "react-native";
 import { CustomTabBar } from "@/src/components/custom-tab-bar/custom-tab-bar";
 import { LoadingModal } from "@/src/components/loading-modal/loading-modal";
-import { FloatingButton } from "./styles";
+import * as S from "./styles";
 import { router } from "expo-router";
 
 export const HomeView = ({
@@ -30,7 +30,7 @@ export const HomeView = ({
           <CustomTabBar props={props} setIndex={setIndex} index={index} />
         )}
       />
-      <FloatingButton
+      <S.FloatingButton
         icon="plus"
         onPress={() =>
           router.navigate({

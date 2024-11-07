@@ -1,8 +1,8 @@
 import { FormEditCreateProduct } from "@/src/components/form-edit-create-product/form-edit-create-product";
-import { Container, ContentKeyboardView } from "./styles";
+import * as S from "./styles";
 import { IEditPorduct } from "../interface-edit-create-product";
 import { ButtonDefault } from "@/src/components/button-default/button-default";
-import { ModalEditCreateProduct } from "@/src/components/modal-edit-product/modal-edit-product";
+import { ModalEditCreateProduct } from "@/src/components/modal-edit-create-product/modal-edit-create-product";
 
 export const EditCreateProductView = ({
   control,
@@ -14,14 +14,14 @@ export const EditCreateProductView = ({
 }: IEditPorduct) => {
   const handleSave = isAdd ? handleSubmit(onSubmit) : () => setOpenModal(true);
   return (
-    <ContentKeyboardView behavior="padding">
-      <Container
+    <S.ContentKeyboardView behavior="padding">
+      <S.Container
         contentContainerStyle={{
           paddingBottom: 70,
         }}
       >
         <FormEditCreateProduct control={control} />
-      </Container>
+      </S.Container>
       <ButtonDefault
         onPress={handleSave}
         title="Salvar"
@@ -36,6 +36,6 @@ export const EditCreateProductView = ({
         onPressCancel={() => setOpenModal(false)}
         onPressConfirm={handleSubmit(onSubmit)}
       />
-    </ContentKeyboardView>
+    </S.ContentKeyboardView>
   );
 };

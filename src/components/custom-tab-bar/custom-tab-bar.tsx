@@ -1,25 +1,25 @@
 import { ICustomTabBar } from "./interface-custom-tab-bar";
-import { ButtonTab, Container, TitleTab } from "./styles";
+import * as S from "./styles";
 
 export const CustomTabBar = ({ props, setIndex, index }: ICustomTabBar) => {
   return (
-    <Container>
+    <S.Container>
       {props?.navigationState?.routes &&
         props?.navigationState?.routes.map((item, i) => {
           return (
-            <ButtonTab
+            <S.ButtonTab
               currentIndex={index == i}
               onPress={() => setIndex(i)}
               key={i}
             >
-              <TitleTab>
+              <S.TitleTab>
                 {item.title == "First"
                   ? "Produtos Masculinos"
                   : "Produtos Femininos"}
-              </TitleTab>
-            </ButtonTab>
+              </S.TitleTab>
+            </S.ButtonTab>
           );
         })}
-    </Container>
+    </S.Container>
   );
 };

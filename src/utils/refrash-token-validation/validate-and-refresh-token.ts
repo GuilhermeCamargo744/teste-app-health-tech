@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { logout } from "./login-token";
 import { refreshAccessToken } from "@/src/models/refresh-token/refrash-token-model";
+import { logout } from "../logout";
 
 export const validateAndRefreshToken = async () => {
   try {
@@ -11,9 +11,8 @@ export const validateAndRefreshToken = async () => {
     }
     const response = refreshAccessToken();
 
-    if (response.data.accessToken) {
-      await AsyncStorage.setItem("accessToken", response.data.accessToken);
-      return response.data.accessToken;
+    if (response) {
+      return response;
     } else {
       await logout();
       return null;

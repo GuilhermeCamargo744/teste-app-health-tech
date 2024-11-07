@@ -1,14 +1,5 @@
 import { CardLogin } from "@/src/components/card-login/card-login";
-import {
-  Container,
-  ContainerScroll,
-  ContentAbsolute,
-  ContentBottom,
-  ContentKeyboardView,
-  ContentTop,
-  Description,
-  Title,
-} from "./styles";
+import * as S from "./styles";
 import { IAuthView } from "../interface/interface-auth-view";
 
 export const AuthView = ({
@@ -19,16 +10,16 @@ export const AuthView = ({
   error,
 }: IAuthView) => {
   return (
-    <ContentKeyboardView behavior="padding">
-      <ContainerScroll>
-        <Container>
-          <ContentTop />
-          <ContentBottom />
-          <ContentAbsolute>
-            <Title>Bem-vindo de volta!</Title>
-            <Description>
+    <S.ContentKeyboardView behavior="padding">
+      <S.ContainerScroll>
+        <S.Container>
+          <S.ContentTop />
+          <S.ContentBottom />
+          <S.ContentAbsolute>
+            <S.Title>Bem-vindo de volta!</S.Title>
+            <S.Description>
               Insira seus dados para entrar na sua conta.
-            </Description>
+            </S.Description>
             <CardLogin
               control={control}
               handleSubmit={handleSubmit}
@@ -36,9 +27,9 @@ export const AuthView = ({
               loading={loading}
               error={error}
             />
-          </ContentAbsolute>
-        </Container>
-      </ContainerScroll>
-    </ContentKeyboardView>
+          </S.ContentAbsolute>
+        </S.Container>
+      </S.ContainerScroll>
+    </S.ContentKeyboardView>
   );
 };

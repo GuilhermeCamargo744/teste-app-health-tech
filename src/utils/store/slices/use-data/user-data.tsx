@@ -2,11 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import { IUserData } from "./interface-user-data";
 
 export interface IUserDataSlice {
-  userData: IUserData | {};
+  user: IUserData;
 }
 
 const initialState: IUserDataSlice = {
-  userData: {},
+  user: {},
 };
 
 export const userData = createSlice({
@@ -14,11 +14,14 @@ export const userData = createSlice({
   initialState,
   reducers: {
     setUserData: (state, action) => {
-      state.userData = action.payload;
+      state.user = action.payload;
+    },
+    setResetReduxUserData: (state, action) => {
+      state.user = initialState.user;
     },
   },
 });
 
-export const { setUserData } = userData.actions;
+export const { setUserData, setResetReduxUserData } = userData.actions;
 
 export default userData.reducer;

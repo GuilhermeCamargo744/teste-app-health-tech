@@ -25,16 +25,17 @@ export default function TabLayout() {
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
               name={focused ? "home" : "home-outline"}
-              color={focused ? theme.colors.primary : theme.colors.gray}
+              color={focused ? theme.colors.primary : theme.colors.gray_100}
+              size={18}
             />
           ),
           tabBarLabel: ({ focused }) => {
             return (
               <Text
                 style={{
-                  fontSize: theme.size.xs,
-                  fontFamily: theme.fonts[600],
-                  color: focused ? theme.colors.primary : theme.colors.gray,
+                  fontSize: theme.fontSizes.xs,
+                  fontFamily: theme.fonts.medium,
+                  color: focused ? theme.colors.primary : theme.colors.gray_100,
                 }}
               >
                 Início
@@ -44,22 +45,23 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="settings"
         options={{
           title: "Configurações",
           tabBarIcon: ({ focused }) => (
             <TabBarIcon
-              name={focused ? "code-slash" : "code-slash-outline"}
-              color={focused ? theme.colors.primary : theme.colors.gray}
+              name={focused ? "settings" : "settings-outline"}
+              color={focused ? theme.colors.primary : theme.colors.gray_100}
+              size={18}
             />
           ),
           tabBarLabel: ({ focused }) => {
             return (
               <Text
                 style={{
-                  fontSize: theme.size.xs,
-                  fontFamily: theme.fonts[600],
-                  color: focused ? theme.colors.primary : theme.colors.gray,
+                  fontSize: theme.fontSizes.xs,
+                  fontFamily: theme.fonts.medium,
+                  color: focused ? theme.colors.primary : theme.colors.gray_100,
                 }}
               >
                 Configurações

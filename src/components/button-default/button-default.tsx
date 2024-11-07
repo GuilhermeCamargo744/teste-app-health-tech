@@ -1,6 +1,6 @@
 import { ActivityIndicator } from "react-native";
 import { IButtonDefault } from "./interface";
-import { ContentButton, ContentIcon, TitleButton } from "./styles";
+import * as S from "./styles";
 import { useTheme } from "styled-components";
 
 export const ButtonDefault = ({
@@ -13,15 +13,15 @@ export const ButtonDefault = ({
 }: IButtonDefault) => {
   const them = useTheme();
   return (
-    <ContentButton style={styleContent} onPress={onPress} disabled={loading}>
+    <S.ContentButton style={styleContent} onPress={onPress} disabled={loading}>
       {loading ? (
         <ActivityIndicator size={16} color={them.colors.white} />
       ) : (
-        <ContentIcon>
-          <TitleButton style={styleTitle}>{title}</TitleButton>
+        <S.ContentIcon>
+          <S.TitleButton style={styleTitle}>{title}</S.TitleButton>
           {Icon && <Icon />}
-        </ContentIcon>
+        </S.ContentIcon>
       )}
-    </ContentButton>
+    </S.ContentButton>
   );
 };

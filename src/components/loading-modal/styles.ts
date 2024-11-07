@@ -6,7 +6,7 @@ export const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 8px;
   border-width: 1px;
-  border-color: ${({ theme }) => theme.colors.gray};
+  border-color: ${({ theme }) => theme.colors.gray_100};
   align-items: center;
   justify-content: center;
   padding: 24px;
@@ -14,8 +14,8 @@ export const Container = styled.View`
 `;
 
 export const TitleModal = styled.Text`
-  font-family: ${({ theme }) => theme.fonts[700]};
-  font-size: ${({ theme }) => theme.size.xl}px;
+  font-family: ${({ theme }) => theme.fonts.bold};
+  font-size: ${({ theme }) => theme.fontSizes.xl}px;
   color: ${({ theme }) => theme.colors.primary};
   width: 100%;
   text-align: left;

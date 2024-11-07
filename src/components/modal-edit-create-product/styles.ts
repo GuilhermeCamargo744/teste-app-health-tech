@@ -13,7 +13,7 @@ export const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 8px;
   border-width: 1px;
-  border-color: ${({ theme }) => theme.colors.gray};
+  border-color: ${({ theme }) => theme.colors.gray_200};
   align-items: center;
   justify-content: center;
   padding: 24px;
@@ -28,8 +28,8 @@ export const Header = styled.View`
 `;
 
 export const TitleHeader = styled.Text`
-  font-size: ${({ theme }) => theme.size.lg}px;
-  font-family: ${({ theme }) => theme.fonts[600]};
+  font-size: ${({ theme }) => theme.fontSizes.lg}px;
+  font-family: ${({ theme }) => theme.fonts.medium};
   color: ${({ theme }) => theme.colors.black_600};
 `;
 
@@ -40,8 +40,8 @@ export const Body = styled.View`
 `;
 
 export const Description = styled.Text`
-  font-size: ${({ theme }) => theme.size.sm}px;
-  font-family: ${({ theme }) => theme.fonts[400]};
+  font-size: ${({ theme }) => theme.fontSizes.sm}px;
+  font-family: ${({ theme }) => theme.fonts.regular};
   color: ${({ theme }) => theme.colors.gray_500};
   text-align: left;
 `;

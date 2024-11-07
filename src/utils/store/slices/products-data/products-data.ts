@@ -78,6 +78,10 @@ export const productsDataSlice = createSlice({
         state.manProducts.push(newProduct);
       }
     },
+    setResetReduxProductsData: (state, action) => {
+      state.manProducts = initialState.manProducts;
+      state.womanProducts = initialState.womanProducts;
+    },
   },
 });
 
@@ -86,6 +90,7 @@ export const {
   setWomanProducts,
   setDeleteAndUpdateProduct,
   setAddProduct,
+  setResetReduxProductsData,
 } = productsDataSlice.actions;
 
 export default productsDataSlice.reducer;

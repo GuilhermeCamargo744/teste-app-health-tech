@@ -26,7 +26,7 @@ export const DotsListCards = styled.View<{ isCurrent?: boolean }>`
   width: 8px;
   border-radius: 8px;
   background-color: ${({ theme, isCurrent }) =>
-    isCurrent ? theme.colors.primary : theme.colors.gray};
+    isCurrent ? theme.colors.primary : theme.colors.gray_100};
   margin: 2px;
 `;
 
@@ -45,8 +45,8 @@ export const ContentDescription = styled.View`
 `;
 
 export const TitleItem = styled.Text`
-  font-family: ${({ theme }) => theme.fonts[700]};
-  font-size: ${({ theme }) => theme.size.xxl}px;
+  font-family: ${({ theme }) => theme.fonts.bold};
+  font-size: ${({ theme }) => theme.fontSizes.xxl}px;
   color: ${({ theme }) => theme.colors.black};
 `;
 
@@ -58,25 +58,25 @@ export const ContentAmount = styled.View`
 `;
 
 export const AmountText = styled.Text<{ haveDiscount?: boolean }>`
-  font-family: ${({ theme }) => theme.fonts[600]};
+  font-family: ${({ theme }) => theme.fonts.medium};
   font-size: ${({ theme, haveDiscount }) =>
-    !haveDiscount ? theme.size.xl : theme.size.xxl}px;
+    !haveDiscount ? theme.fontSizes.xl : theme.fontSizes.xxl}px;
   color: ${({ theme }) => theme.colors.background};
   text-decoration-line: ${({ haveDiscount }) =>
     !haveDiscount ? "line-through" : "none"};
 `;
 
 export const DiscountText = styled.Text`
-  font-family: ${({ theme }) => theme.fonts[600]};
-  font-size: ${({ theme }) => theme.size.xxl}px;
+  font-family: ${({ theme }) => theme.fonts.medium};
+  font-size: ${({ theme }) => theme.fontSizes.xxl}px;
   color: ${({ theme }) => theme.colors.red};
   margin-right: 8px;
 `;
 
 export const Description = styled.Text`
-  font-family: ${({ theme }) => theme.fonts[400]};
-  font-size: ${({ theme }) => theme.size.md}px;
-  color: ${({ theme }) => theme.colors.gray};
+  font-family: ${({ theme }) => theme.fonts.regular};
+  font-size: ${({ theme }) => theme.fontSizes.md}px;
+  color: ${({ theme }) => theme.colors.gray_100};
   line-height: 20px;
   margin-top: 8px;
 `;
