@@ -24,13 +24,13 @@ export const mookListForm: IMookListForm[] = [
     name: "price",
     title: "Preço (R$)",
     required: "Preço do produto é obrigatório",
-    keyboardType: "numeric",
+    keyboardType: "number-pad",
   },
   {
     name: "discountPercentage",
     title: "Desconto (%)",
     required: "Desconto do produto é obrigatório",
-    keyboardType: "numeric",
+    keyboardType: "number-pad",
   },
   {
     name: "thumbnail",
