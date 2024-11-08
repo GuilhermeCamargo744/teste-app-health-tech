@@ -7,17 +7,16 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "react-native-reanimated";
 import { ThemeProvider } from "styled-components";
 import { Provider } from "react-redux";
-import { store } from "@/src/utils/store/store";
+import { store } from "@/src/store/store";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded] = useFonts({
-    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
-    RobotoRegular: require("../src/fonts/Roboto/Roboto-Regular.ttf"),
-    RobotoMedium: require("../src/fonts/Roboto/Roboto-Medium.ttf"),
-    RobotoBold: require("../src/fonts/Roboto/Roboto-Bold.ttf"),
+    RobotoRegular: require("../src/assets/fonts/Roboto/Roboto-Regular.ttf"),
+    RobotoMedium: require("../src/assets/fonts/Roboto/Roboto-Medium.ttf"),
+    RobotoBold: require("../src/assets/fonts/Roboto/Roboto-Bold.ttf"),
   });
 
   useEffect(() => {

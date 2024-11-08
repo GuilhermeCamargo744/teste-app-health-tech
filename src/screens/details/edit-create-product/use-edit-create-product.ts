@@ -6,7 +6,7 @@ import { getGenderFromCategory } from "@/src/utils/get-gender-from-category";
 import {
   setAddProduct,
   setDeleteAndUpdateProduct,
-} from "@/src/utils/store/slices/products-data/products-data";
+} from "@/src/store/slices/products-data/products-data";
 import { router, useGlobalSearchParams } from "expo-router";
 import { useState } from "react";
 import { useForm } from "react-hook-form";

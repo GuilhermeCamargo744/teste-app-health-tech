@@ -13,11 +13,12 @@ export const CustomModal = ({
   description,
   titleButton,
   styleButton,
+  styleContainer,
 }: ICustomModal) => {
   const theme = useTheme();
   return (
     <S.ModalProduct visible={visible} onDismiss={onPressCancel}>
-      <S.Container>
+      <S.Container style={styleContainer}>
         <S.Header>
           <S.TitleHeader>{titleHeader}</S.TitleHeader>
           <TouchableOpacity onPress={() => onPressCancel()}>

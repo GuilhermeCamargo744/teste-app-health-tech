@@ -36,6 +36,9 @@ export const EditCreateProductView = ({
         onPressConfirm={handleSubmit(onSubmit)}
         description="Você tem certeza que deseja editar esse produto? Essa ação não poderá ser desfeita."
         titleButton="Editar"
+        styleContainer={{
+          marginBottom: 100,
+        }}
       />
     </S.ContentKeyboardView>
   );

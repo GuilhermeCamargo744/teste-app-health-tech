@@ -7,9 +7,9 @@ import { useAppDispatch } from "@/src/hooks/use-redux";
 import {
   setResetReduxUserData,
   setUserData,
-} from "@/src/utils/store/slices/use-data/user-data";
-import { setResetReduxCurrentProduct } from "@/src/utils/store/slices/current-product-data/current-product-data";
-import { setResetReduxProductsData } from "@/src/utils/store/slices/products-data/products-data";
+} from "@/src/store/slices/use-data/user-data";
+import { setResetReduxCurrentProduct } from "@/src/store/slices/current-product-data/current-product-data";
+import { setResetReduxProductsData } from "@/src/store/slices/products-data/products-data";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useGlobalSearchParams } from "expo-router";
 

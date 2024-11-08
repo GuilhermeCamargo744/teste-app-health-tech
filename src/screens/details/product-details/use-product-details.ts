@@ -4,7 +4,7 @@ import { Dimensions } from "react-native";
 import { useTheme } from "styled-components";
 import { deleteProductsModel } from "@/src/models/product/delete-products-model";
 import { router } from "expo-router";
-import { setDeleteAndUpdateProduct } from "@/src/utils/store/slices/products-data/products-data";
+import { setDeleteAndUpdateProduct } from "@/src/store/slices/products-data/products-data";
 import { getGenderFromCategory } from "@/src/utils/get-gender-from-category";
 
 export const useProductDetails = () => {

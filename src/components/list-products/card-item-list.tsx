@@ -2,7 +2,7 @@ import { money } from "@/src/utils/money";
 import { IData } from "./interface-list-products";
 import { useAppDispatch } from "@/src/hooks/use-redux";
 import { calculatePercent } from "@/src/utils/calculate-percent";
-import { setCurrentProduct } from "@/src/utils/store/slices/current-product-data/current-product-data";
+import { setCurrentProduct } from "@/src/store/slices/current-product-data/current-product-data";
 import { router } from "expo-router";
 import * as S from "./styles";
 

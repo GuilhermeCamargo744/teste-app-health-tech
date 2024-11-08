@@ -1,4 +1,4 @@
-import { IProductsData } from "@/src/utils/store/slices/products-data/interface-products-data";
+import { IProductsData } from "@/src/store/slices/products-data/interface-products-data";
 
 export interface IListProducts {
   formatedData: { title: string; data: IData }[];

@@ -8,7 +8,7 @@ import { womensWatchesModel } from "@/src/models/categorys/woman-categorys/women
 import {
   setManProducts,
   setWomanProducts,
-} from "@/src/utils/store/slices/products-data/products-data";
+} from "@/src/store/slices/products-data/products-data";
 import { useEffect, useState } from "react";
 import { useWindowDimensions } from "react-native";
 import { SceneMap } from "react-native-tab-view";

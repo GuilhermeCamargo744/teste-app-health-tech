@@ -124,6 +124,9 @@ export const ProdutcDetailsView = ({
         styleButton={{
           backgroundColor: theme.colors.red,
         }}
+        styleContainer={{
+          marginBottom: 100,
+        }}
       />
     </S.Container>
   );

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const isDevelop = true;
+export const isDevelop = false;
 const baseURL = "https://dummyjson.com";
 
 export const api = axios.create({

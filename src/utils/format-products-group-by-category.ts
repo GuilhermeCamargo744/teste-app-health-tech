@@ -1,4 +1,4 @@
-import { IProductsData } from "./store/slices/products-data/interface-products-data";
+import { IProductsData } from "../store/slices/products-data/interface-products-data";
 
 export const formatProductsGroupByCategory = (
   items: IProductsData[] | null | [] | any

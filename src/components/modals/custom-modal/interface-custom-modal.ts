@@ -8,4 +8,5 @@ export interface ICustomModal {
   onPressConfirm: () => void;
   titleButton: string;
   styleButton?: StyleProp<ViewStyle>;
+  styleContainer?: StyleProp<ViewStyle>;
 }
