@@ -19,16 +19,18 @@ export const DevelopingModal = ({
             <AntDesign name="close" size={24} color={theme.colors.gray_100} />
           </TouchableOpacity>
         </S.Header>
-        <LottieView
-          autoPlay
-          style={{
-            width: 220,
-            height: 220,
-            backgroundColor: theme.colors.primary,
-            borderRadius: 220,
-          }}
-          source={require("@/src/lottie/developing.json")}
-        />
+        <S.ContentLottie>
+          <LottieView
+            autoPlay
+            resizeMode="contain"
+            style={{
+              width: 220,
+              height: 220,
+              borderRadius: 220,
+            }}
+            source={require("@/src/lottie/developing.json")}
+          />
+        </S.ContentLottie>
         <S.Description>Área em desenvolvimento</S.Description>
       </S.Container>
     </S.ModalProduct>

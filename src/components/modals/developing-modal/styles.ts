@@ -31,4 +31,14 @@ export const Description = styled.Text`
   font-family: ${({ theme }) => theme.fonts.bold};
   color: ${({ theme }) => theme.colors.black_600};
   margin-top: 24px;
+  text-align: center;
+`;
+
+export const ContentLottie = styled.View`
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 220px;
+  border-radius: 220px;
+  background-color: ${({ theme }) => theme.colors.primary};
 `;
