@@ -1,13 +1,21 @@
 import { UserAvatar } from "@/src/components/user-avatar/user-avatar";
 import * as S from "./styles";
 import { ISettings } from "../interface-settings";
-import { ButtonDefault } from "@/src/components/button-default/button-default";
-import { ButtonChevron } from "@/src/components/button-chevron/button-chevron";
+import { ButtonDefault } from "@/src/components/buttons/button-default/button-default";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import { logout } from "@/src/utils/logout";
 import { router } from "expo-router";
+import { CustomModal } from "@/src/components/modals/custom-modal/custom-modal";
+import { ButtonChevron } from "@/src/components/buttons/button-chevron/button-chevron";
+import { DevelopingModal } from "@/src/components/modals/developing-modal/developing-modal";
 
-export const SettingsView = ({ userData, theme }: ISettings) => {
+export const SettingsView = ({
+  userData,
+  theme,
+  openModal,
+  setOpenModal,
+  openModalDeveloping,
+  setOpenModalDeveloping,
+}: ISettings) => {
   return (
     <S.Container>
       <S.ContentScroll>
@@ -17,7 +25,7 @@ export const SettingsView = ({ userData, theme }: ISettings) => {
           </S.UserName>
           <S.Email>{userData.email}</S.Email>
           <ButtonChevron
-            onPress={() => {}}
+            onPress={() => setOpenModalDeveloping(true)}
             title="Meus dados"
             Icon={() => (
               <MaterialIcons
@@ -28,7 +36,7 @@ export const SettingsView = ({ userData, theme }: ISettings) => {
             )}
           />
           <ButtonChevron
-            onPress={() => {}}
+            onPress={() => setOpenModalDeveloping(true)}
             title="Notificações"
             Icon={() => (
               <MaterialIcons
@@ -39,7 +47,7 @@ export const SettingsView = ({ userData, theme }: ISettings) => {
             )}
           />
           <ButtonChevron
-            onPress={() => {}}
+            onPress={() => setOpenModalDeveloping(true)}
             title="Termos de uso"
             Icon={() => (
               <MaterialIcons
@@ -50,12 +58,7 @@ export const SettingsView = ({ userData, theme }: ISettings) => {
             )}
           />
           <ButtonDefault
-            onPress={() =>
-              router.replace({
-                pathname: "/auth-screen",
-                params: { logout: 1 },
-              })
-            }
+            onPress={() => setOpenModal(true)}
             title="Sair da conta"
             styleContent={{
               backgroundColor: theme.colors.red_500,
@@ -65,6 +68,26 @@ export const SettingsView = ({ userData, theme }: ISettings) => {
         </S.ContentBody>
       </S.ContentScroll>
       <UserAvatar uri={userData?.image} />
+      <CustomModal
+        visible={openModal}
+        titleHeader="Sair da conta"
+        onPressCancel={() => setOpenModal(false)}
+        onPressConfirm={() =>
+          router.replace({
+            pathname: "/auth-screen",
+            params: { logout: 1 },
+          })
+        }
+        description="Você tem certeza que deseja sair da conta? "
+        titleButton="Sair"
+        styleButton={{
+          backgroundColor: theme.colors.red_500,
+        }}
+      />
+      <DevelopingModal
+        onPressCancel={() => setOpenModalDeveloping(false)}
+        visible={openModalDeveloping}
+      />
     </S.Container>
   );
 };

@@ -1,8 +1,8 @@
 import { FormEditCreateProduct } from "@/src/components/form-edit-create-product/form-edit-create-product";
 import * as S from "./styles";
 import { IEditPorduct } from "../interface-edit-create-product";
-import { ButtonDefault } from "@/src/components/button-default/button-default";
-import { ModalEditCreateProduct } from "@/src/components/modal-edit-create-product/modal-edit-create-product";
+import { ButtonDefault } from "@/src/components/buttons/button-default/button-default";
+import { CustomModal } from "@/src/components/modals/custom-modal/custom-modal";
 
 export const EditCreateProductView = ({
   control,
@@ -29,12 +29,13 @@ export const EditCreateProductView = ({
           bottom: 35,
         }}
       />
-      <ModalEditCreateProduct
+      <CustomModal
         visible={openModal}
         titleHeader="Editar produto"
-        isDelete={false}
         onPressCancel={() => setOpenModal(false)}
         onPressConfirm={handleSubmit(onSubmit)}
+        description="Você tem certeza que deseja editar esse produto? Essa ação não poderá ser desfeita."
+        titleButton="Editar"
       />
     </S.ContentKeyboardView>
   );

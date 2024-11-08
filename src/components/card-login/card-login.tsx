@@ -3,7 +3,7 @@ import * as S from "./styles";
 import { InputWithTitle } from "../input-with-title/input-with-title";
 import { ICardLogin } from "./interface";
 import { Controller } from "react-hook-form";
-import { ButtonDefault } from "../button-default/button-default";
+import { ButtonDefault } from "../buttons/button-default/button-default";
 
 export const CardLogin = ({
   control,

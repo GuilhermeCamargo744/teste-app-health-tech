@@ -2,7 +2,7 @@ import { TabView } from "react-native-tab-view";
 import { IUseHome } from "../interface/interface-use-home";
 import { SafeAreaView } from "react-native";
 import { CustomTabBar } from "@/src/components/custom-tab-bar/custom-tab-bar";
-import { LoadingModal } from "@/src/components/loading-modal/loading-modal";
+import { LoadingModal } from "@/src/components/modals/loading-modal/loading-modal";
 import * as S from "./styles";
 import { router } from "expo-router";
 

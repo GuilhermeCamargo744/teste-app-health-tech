@@ -8,10 +8,10 @@ import { IProductDetails } from "../interface-product-details";
 import * as S from "./styles";
 import { calculatePercent } from "@/src/utils/calculate-percent";
 import { money } from "@/src/utils/money";
-import { ButtonDefault } from "@/src/components/button-default/button-default";
+import { ButtonDefault } from "@/src/components/buttons/button-default/button-default";
 import Feather from "@expo/vector-icons/Feather";
-import { ModalEditCreateProduct } from "@/src/components/modal-edit-create-product/modal-edit-create-product";
 import { router } from "expo-router";
+import { CustomModal } from "@/src/components/modals/custom-modal/custom-modal";
 
 export const ProdutcDetailsView = ({
   detailsProduct,
@@ -114,12 +114,16 @@ export const ProdutcDetailsView = ({
           )}
         />
       </S.ContentButtons>
-      <ModalEditCreateProduct
+      <CustomModal
         visible={openModal}
         titleHeader="Excluir produto"
-        isDelete={true}
         onPressCancel={() => setOpenModal(false)}
         onPressConfirm={() => handleDeleteItem(detailsProduct?.id)}
+        description="Você tem certeza que deseja excluir esse produto? Essa ação não poderá ser desfeita."
+        titleButton="Excluir"
+        styleButton={{
+          backgroundColor: theme.colors.red,
+        }}
       />
     </S.Container>
   );

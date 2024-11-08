@@ -1,18 +1,19 @@
-import { useTheme } from "styled-components";
-
-import * as S from "./styles";
-import AntDesign from "@expo/vector-icons/AntDesign";
-import { IModalEditCreateProduct } from "./interface-modal-edit-create-product";
-import { ButtonDefault } from "../button-default/button-default";
 import { TouchableOpacity } from "react-native";
+import { ICustomModal } from "./interface-custom-modal";
+import * as S from "./styles";
+import { useTheme } from "styled-components";
+import AntDesign from "@expo/vector-icons/AntDesign";
+import { ButtonDefault } from "../../buttons/button-default/button-default";
 
-export const ModalEditCreateProduct = ({
+export const CustomModal = ({
   visible,
   titleHeader,
-  isDelete,
   onPressCancel,
   onPressConfirm,
-}: IModalEditCreateProduct) => {
+  description,
+  titleButton,
+  styleButton,
+}: ICustomModal) => {
   const theme = useTheme();
   return (
     <S.ModalProduct visible={visible} onDismiss={onPressCancel}>
@@ -24,11 +25,7 @@ export const ModalEditCreateProduct = ({
           </TouchableOpacity>
         </S.Header>
         <S.Body>
-          <S.Description>
-            {isDelete
-              ? "Você tem certeza que deseja excluir esse produto? Essa ação não poderá ser desfeita."
-              : "Você tem certeza que deseja editar esse produto? Essa ação não poderá ser desfeita."}
-          </S.Description>
+          <S.Description>{description}</S.Description>
         </S.Body>
         <S.ContentBottom>
           <ButtonDefault
@@ -48,14 +45,15 @@ export const ModalEditCreateProduct = ({
           />
           <ButtonDefault
             onPress={() => onPressConfirm()}
-            title={isDelete ? "Excluir" : "Editar"}
-            styleContent={{
-              width: "auto",
-              paddingHorizontal: 16,
-              backgroundColor: isDelete
-                ? theme.colors.red
-                : theme.colors.primary,
-            }}
+            title={titleButton}
+            styleContent={[
+              {
+                width: "auto",
+                paddingHorizontal: 16,
+                backgroundColor: theme.colors.primary,
+              },
+              styleButton,
+            ]}
           />
         </S.ContentBottom>
       </S.Container>
